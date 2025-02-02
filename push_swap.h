@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/02 22:16:09 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:59:01 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_data
 
 
 int	handle_input (int argc, char **argv, t_data *data);
+int	syntax_error (t_data *data);
 
 void	clear_data(t_data *data);
 

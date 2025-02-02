@@ -6,7 +6,7 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/02 17:15:19 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/02/02 17:59:27 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/02/02 23:30:01 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 LIBFT = ./libft/libft.a
 LIBFT_DIR = ./libft
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -ggdb
 SRCS = main.c handle_input.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -rf

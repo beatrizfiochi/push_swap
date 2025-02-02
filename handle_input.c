@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/02 22:23:01 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/02 23:47:33 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,34 @@ void	clear_data(t_data *data)
 		}
 		free(data->args);
 	}
+}
+
+int	syntax_error (t_data *data)
+{
+	char	**s;
+	int		i;
+
+	s = data->args;
+	while (*s != NULL)
+	{
+		i = 0;
+		while ((*s)[i] == '+' || (*s)[i] == '-')
+			i++;
+		if((*s)[i] == '\0')
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		while ((*s)[i] != '\0')
+		{
+			if ((*s)[i] < '0' || (*s)[i] > '9')
+			{
+				ft_printf("Error\n");
+				exit(1);
+			}
+			i++;
+		}
+		s++;
+	}
+	return (0);
 }
