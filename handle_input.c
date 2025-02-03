@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/03 00:33:17 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:42:08 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,16 @@ void	clear_data(t_data *data)
 	}
 }
 
+static int	is_integer (const char *str)
+{
+	long	num;
+
+	num = ft_atol(str);
+	if (num > INT_MAX || num < INT_MIN)
+		print_error();
+	return (0);
+}
+
 int	syntax_error (t_data *data)
 {
 	char	**s;
@@ -54,7 +64,7 @@ int	syntax_error (t_data *data)
 	while (*s != NULL)
 	{
 		i = 0;
-		while ((*s)[i] == '+' || (*s)[i] == '-')
+		if((*s)[i] == '+' || (*s)[i] == '-')
 			i++;
 		if((*s)[i] == '\0')
 			print_error();
@@ -64,22 +74,8 @@ int	syntax_error (t_data *data)
 				print_error();
 			i++;
 		}
+		is_integer(*s);
 		s++;
 	}
-	return (0);
-}
-
-int	is_integer (t_data *data)
-{
-	char	**s;
-
-	s = data->args;
-	while (*s != NULL)
-	{
-		data->num = ft_atol(*s);
-		s++;
-	}
-	if (data->num > INT_MAX || data->num < INT_MIN)
-		print_error();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/03 00:22:37 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:09:02 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long	ft_atol(const char *nbr)
 	if(nbr[i] == '-' || nbr[i] == '+')
 	{
 		if(nbr[i] == '-')
-			sign = -1;
+			sign = sign * (-1);
 		i++;
 	}
 	while (nbr[i] >= '0' && nbr[i] <= '9')

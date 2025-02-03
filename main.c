@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:32:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/03 00:34:11 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/03 08:15:54 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	// b = NULL;
 	handle_input(argc, argv, &data);
 	syntax_error(&data);
-	is_integer(&data);
 	char	**s;
 	s = data.args;
 	while (*s != NULL)
