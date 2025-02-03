@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 17:32:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/03 00:34:11 by bfiochi-         ###   ########.fr       */
+/*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
+/*   Updated: 2025/02/03 00:22:37 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	print_error(void)
 {
-	// t_stack	*a;
-	// t_stack	*b;
-	t_data	data;
+	ft_printf("Error\n");
+	exit(1);
+}
 
-	// a = NULL;
-	// b = NULL;
-	handle_input(argc, argv, &data);
-	syntax_error(&data);
-	is_integer(&data);
-	char	**s;
-	s = data.args;
-	while (*s != NULL)
+long	ft_atol(const char *nbr)
+{
+	size_t	i;
+	long	sign;
+	long	num;
+
+	i = 0;
+	sign = 1;
+	num = 0;
+	while (nbr[i] == 32 || (nbr[i] >= 9 && nbr[i] <= 13))
+		i++;
+	if(nbr[i] == '-' || nbr[i] == '+')
 	{
-		ft_printf("arg: %s\n", *s);
-		s++;
+		if(nbr[i] == '-')
+			sign = -1;
+		i++;
 	}
-	clear_data(&data);
-	return (0);
+	while (nbr[i] >= '0' && nbr[i] <= '9')
+	{
+		num = (nbr[i] - '0') + (num * 10);
+		i++;
+	}
+	return (num * sign);
 }
