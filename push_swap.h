@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/03 14:36:21 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:20:50 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,16 @@ typedef struct	s_stack
 
 typedef struct s_data
 {
-	char	**args;
-	bool	args_need_free;
+	char			**args;
+	bool			args_need_free;
 }	t_data;
 
 
 int	handle_input (int argc, char **argv, t_data *data);
-int	syntax_error (t_data *data);
 
 long	ft_atol(const char *nbr);
 
 void	clear_data(t_data *data);
-void	print_error(void);
+void	print_error(t_data *data);
 
 #endif

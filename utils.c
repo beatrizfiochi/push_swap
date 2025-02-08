@@ -6,14 +6,15 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/03 14:09:02 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:18:55 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(void)
+void	print_error(t_data *data)
 {
+	clear_data(data);
 	ft_printf("Error\n");
 	exit(1);
 }
