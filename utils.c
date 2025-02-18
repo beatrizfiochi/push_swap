@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/04 14:18:55 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:14:06 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_error(t_data *data)
 {
 	clear_data(data);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
