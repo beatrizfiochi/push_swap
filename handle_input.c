@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/04 14:29:34 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:37:19 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ static int	syntax_error(t_data *data)
 	return (0);
 }
 
-static int	is_duplicate(t_data *data, int n)
+static int	is_duplicate(t_data *data, int n, char **current)
 {
 	char	**tmp;
 
 	tmp = data->args;
-	while (*tmp != NULL)
+	while (tmp != current)
 	{
 		if (ft_atoi(*tmp) == n)
 			print_error(data);
@@ -83,7 +83,10 @@ int	handle_input(int argc, char **argv, t_data *data)
 	syntax_error(data);
 	s = data->args;
 	while(*s != NULL)
-		is_duplicate(data, ft_atol(*s++));
+	{
+		is_duplicate(data, ft_atol(*s), s);
+		s++;
+	}
 	return (0);
 }
 

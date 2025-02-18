@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/04 14:20:50 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:13:41 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <unistd.h>
 
 typedef struct	s_stack
 {
