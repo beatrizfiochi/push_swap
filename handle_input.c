@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 16:07:54 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:34:46 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,20 +88,4 @@ int	handle_input(int argc, char **argv, t_data *data)
 		s++;
 	}
 	return (0);
-}
-
-void	clear_data(t_data *data)
-{
-	char	**s;
-
-	if(data->args_need_free == true)
-	{
-		s = data->args;
-		while (*s != NULL)
-		{
-			free(*s);
-			s++;
-		}
-		free(data->args);
-	}
 }

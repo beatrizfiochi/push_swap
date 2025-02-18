@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 15:14:06 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:32:35 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,20 @@ long	ft_atol(const char *nbr)
 		i++;
 	}
 	return (num * sign);
+}
+
+void	clear_data(t_data *data)
+{
+	char	**s;
+
+	if(data->args_need_free == true)
+	{
+		s = data->args;
+		while (*s != NULL)
+		{
+			free(*s);
+			s++;
+		}
+		free(data->args);
+	}
 }

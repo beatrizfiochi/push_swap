@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 15:13:41 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:11:44 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@
 # include <limits.h>
 # include <unistd.h>
 
-typedef struct	s_stack
+typedef struct	s_node
 {
 	int				nbr;
 	int				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	struct s_stack	*target;
-}	t_stack;
+}	t_node;
 
 typedef struct s_data
 {
@@ -41,5 +38,6 @@ long	ft_atol(const char *nbr);
 
 void	clear_data(t_data *data);
 void	print_error(t_data *data);
+void	init_stack(t_list **stack, char **argv);
 
 #endif
