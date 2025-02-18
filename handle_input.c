@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 15:37:19 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:07:54 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_integer(const char *str)
 	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	return (0);
@@ -70,15 +70,15 @@ int	handle_input(int argc, char **argv, t_data *data)
 
 	data->args_need_free = false;
 	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
-		print_error(data);
+		return (1);
 	if (argc > 2)
 		data->args = &argv[1];
 	else
 	{
 		data->args_need_free = true;
 		data->args = ft_split(argv[1], ' ');
-		if (data->args == NULL)
-			print_error(data);
+		if (data->args == NULL || data->args[0] == NULL)
+			return (1);
 	}
 	syntax_error(data);
 	s = data->args;
