@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/16 15:37:09 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/16 20:34:12 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,15 @@ static int	is_duplicate(t_data *data, int n, char **current)
 	return (0);
 }
 
-int	handle_input(int argc, char **argv, t_data *data)
+//handle with the input, if its ok, init stack a
+int	handle_input(int argc, char **argv, t_data *data, t_list **stack_a)
 {
 	char	**s;
 
+	*stack_a = NULL;
 	data->args_need_free = false;
 	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
-		return (1);
+		print_error(data);
 	if (argc > 2)
 		data->args = &argv[1];
 	else
@@ -87,5 +89,6 @@ int	handle_input(int argc, char **argv, t_data *data)
 		is_duplicate(data, ft_atol(*s), s);
 		s++;
 	}
+	init_stack_a(stack_a, data->args);
 	return (0);
 }

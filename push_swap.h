@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/16 16:04:55 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/16 20:33:18 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct	s_node
 {
 	int				nbr;
 	int				index;
-	t_node			*next;
-	t_node			*prev;
+	struct s_node	*next;
+	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_data
@@ -34,12 +34,12 @@ typedef struct s_data
 }	t_data;
 
 
-int	handle_input (int argc, char **argv, t_data *data);
+int	handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
 
 long	ft_atol(const char *nbr);
 
 void	clear_data(t_data *data);
 void	print_error(t_data *data);
-void	init_stack(t_list **stack, char **argv);
+void	init_stack_a(t_list **stack, char **argv);
 
 #endif
