@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 19:11:44 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:04:55 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct	s_node
 {
 	int				nbr;
 	int				index;
+	t_node			*next;
+	t_node			*prev;
 }	t_node;
 
 typedef struct s_data

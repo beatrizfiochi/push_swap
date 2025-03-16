@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 16:34:46 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:37:09 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	is_duplicate(t_data *data, int n, char **current)
 	char	**tmp;
 
 	tmp = data->args;
-	while (tmp != current)
+	while (tmp != NULL && tmp != current)
 	{
 		if (ft_atoi(*tmp) == n)
 			print_error(data);
@@ -75,10 +75,10 @@ int	handle_input(int argc, char **argv, t_data *data)
 		data->args = &argv[1];
 	else
 	{
-		data->args_need_free = true;
 		data->args = ft_split(argv[1], ' ');
 		if (data->args == NULL || data->args[0] == NULL)
 			return (1);
+		data->args_need_free = true;
 	}
 	syntax_error(data);
 	s = data->args;
