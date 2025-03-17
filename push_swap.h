@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/16 20:33:18 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:29:42 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 typedef struct	s_node
 {
 	int				nbr;
-	int				index;
-	struct s_node	*next;
-	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_data
@@ -40,6 +37,17 @@ long	ft_atol(const char *nbr);
 
 void	clear_data(t_data *data);
 void	print_error(t_data *data);
-void	init_stack_a(t_list **stack, char **argv);
+void	init_stack_a(t_list **stack_a, char **argv);
+void	sa(t_list **stack_a);
+void	sb(t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack_a);
+void	rb(t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

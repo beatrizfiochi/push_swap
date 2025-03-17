@@ -6,13 +6,13 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:47:22 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/16 20:37:10 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:17:59 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack_a(t_list **stack, char **argv)
+void	init_stack_a(t_list **stack_a, char **argv)
 {
 	t_node	*content;
 	t_list	*list_item;
@@ -29,7 +29,7 @@ void	init_stack_a(t_list **stack, char **argv)
 			free(content);
 			return ;
 		}
-		ft_lstadd_back(stack, list_item);
+		ft_lstadd_back(stack_a, list_item);
 		argv++;
 	}
 }

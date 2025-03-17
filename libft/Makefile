@@ -6,12 +6,12 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 10:47:59 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/01/07 21:24:55 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/03/17 16:19:02 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -ggdb
 NAME = libft.a
 SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 		ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c\
