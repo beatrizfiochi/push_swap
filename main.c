@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:32:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 19:08:04 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:37:10 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,25 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	// t_list	*b;
 	t_data	data;
+	int		list_size;
 
 	a = NULL;
 	// b = NULL;
 	if (handle_input(argc, argv, &data, &a) != 0)
 		return (1);
-	ft_printf("A:\n");
-	ft_lstiter(a, print_node);
-	ft_printf("true: %d\nfalse: %d\n", true, false);
-	ft_printf("%d\n", is_sorted(&a));
+	if (is_sorted(&a) == true)
+	{
+		clear_data(&data);
+		ft_lstclear(&a, free);
+		return (0);
+	}
+	list_size = ft_lstsize(a);
+	if (list_size == 2)
+		just_two(&a);
+	// ft_printf("A:\n");
+	// ft_lstiter(a, print_node);
+	// ft_printf("true: %d\nfalse: %d\n", true, false);
+	// ft_printf("%d\n", is_sorted(&a));
 	clear_data(&data);
 	ft_lstclear(&a, free);
 	return (0);

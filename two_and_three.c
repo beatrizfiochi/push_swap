@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:35:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 19:17:35 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:32:12 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,11 @@ bool	is_sorted(t_list **stack)
 	}
 	return (true);
 }
+
+void	just_two(t_list **stack)
+{
+	sa(stack);
+	ft_printf("sa\n");
+	return ;
+}
+
