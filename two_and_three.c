@@ -6,9 +6,24 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:35:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 18:36:44 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:17:35 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+bool	is_sorted(t_list **stack)
+{
+	t_list	*stack_a;
+
+	if ((stack == NULL) || (*stack == NULL))
+		return (false);
+	stack_a = *stack;
+	while(stack_a->next != NULL)
+	{
+		if(((t_node *)(stack_a->content))->nbr > ((t_node *)(stack_a->next->content))->nbr)
+			return (false);
+		stack_a = stack_a->next;
+	}
+	return (true);
+}
