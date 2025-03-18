@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:32:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 23:37:10 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:28:37 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 	list_size = ft_lstsize(a);
 	if (list_size == 2)
 		just_two(&a);
+	ft_printf("minimo é: %d\n", find_min(&a));
 	// ft_printf("A:\n");
 	// ft_lstiter(a, print_node);
 	// ft_printf("true: %d\nfalse: %d\n", true, false);
