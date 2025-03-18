@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:35:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 11:57:47 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:37:10 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	is_sorted(t_list **stack)
 	return (true);
 }
 
-void	just_two(t_list **stack)
+void	sort_two(t_list **stack)
 {
 	sa(stack);
 	ft_printf("sa\n");
@@ -53,4 +53,60 @@ int	find_min(t_list **stack)
 	min_node->min = min_node->nbr;
 	return(min_node->min);
 }
+
+int	find_max(t_list **stack)
+{
+	t_list	*current;
+	t_node	*max_node;
+	t_node	*node;
+
+	current = *stack;
+	max_node = (t_node *)(current->content);
+	while(current != NULL)
+	{
+		node = (t_node *)(current->content);
+		if(node->nbr > max_node->nbr)
+			max_node = node;
+		current = current->next;
+	}
+	max_node->max = max_node->nbr;
+	return(max_node->max);
+}
+
+void	sort_three(t_list **stack)
+{
+	int		min;
+	int		max;
+	t_list	*head;
+	t_list	*second;
+	t_list	*tail;
+
+	min = find_min(stack);
+	max = find_max(stack);
+	while(is_sorted(stack) == false)
+	{
+		head = *stack;
+		second = head->next;
+		tail = ft_lstlast(*stack);
+		if ((min == ((t_node *)(head->content))->nbr && max == ((t_node *)(second->content))->nbr)
+			|| (min == ((t_node *)(second->content))->nbr && max == ((t_node *)(tail->content))->nbr))
+		{
+			sa(stack);
+			ft_printf("sa\n");
+		}
+		else if ((max == ((t_node *)(head->content))->nbr && min == ((t_node *)(second->content))->nbr)
+			|| (max == ((t_node *)(head->content))->nbr && min == ((t_node *)(tail->content))->nbr))
+		{
+			ra(stack);
+			ft_printf("ra\n");
+		}
+		else if (min == ((t_node *)(tail->content))->nbr && max == ((t_node *)(second->content))->nbr)
+		{
+			rra(stack);
+			ft_printf("rra\n");
+		}
+	}
+	return ;
+}
+
 

@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 11:30:20 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:10:42 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_data
 
 int	handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
 int	find_min(t_list **stack);
+int	find_max(t_list **stack);
 
 long	ft_atol(const char *nbr);
 
@@ -52,7 +53,8 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
-void	just_two(t_list **stack);
+void	sort_two(t_list **stack);
+void	sort_three(t_list **stack);
 
 bool	is_sorted(t_list **stack);
 

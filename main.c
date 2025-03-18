@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:32:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 11:28:37 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:12:11 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,15 @@ int	main(int argc, char **argv)
 		ft_lstclear(&a, free);
 		return (0);
 	}
+	ft_printf("A:\n");
+	ft_lstiter(a, print_node);
 	list_size = ft_lstsize(a);
 	if (list_size == 2)
-		just_two(&a);
-	ft_printf("minimo é: %d\n", find_min(&a));
-	// ft_printf("A:\n");
-	// ft_lstiter(a, print_node);
-	// ft_printf("true: %d\nfalse: %d\n", true, false);
-	// ft_printf("%d\n", is_sorted(&a));
+		sort_two(&a);
+	if (list_size == 3)
+		sort_three(&a);
+	ft_printf("A sorted:\n");
+	ft_lstiter(a, print_node);
 	clear_data(&data);
 	ft_lstclear(&a, free);
 	return (0);
