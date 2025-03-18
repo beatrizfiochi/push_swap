@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:35:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:37:10 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:49:46 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ bool	is_sorted(t_list **stack)
 void	sort_two(t_list **stack)
 {
 	sa(stack);
-	ft_printf("sa\n");
 	return ;
 }
 
@@ -90,21 +89,12 @@ void	sort_three(t_list **stack)
 		tail = ft_lstlast(*stack);
 		if ((min == ((t_node *)(head->content))->nbr && max == ((t_node *)(second->content))->nbr)
 			|| (min == ((t_node *)(second->content))->nbr && max == ((t_node *)(tail->content))->nbr))
-		{
 			sa(stack);
-			ft_printf("sa\n");
-		}
 		else if ((max == ((t_node *)(head->content))->nbr && min == ((t_node *)(second->content))->nbr)
 			|| (max == ((t_node *)(head->content))->nbr && min == ((t_node *)(tail->content))->nbr))
-		{
 			ra(stack);
-			ft_printf("ra\n");
-		}
 		else if (min == ((t_node *)(tail->content))->nbr && max == ((t_node *)(second->content))->nbr)
-		{
 			rra(stack);
-			ft_printf("rra\n");
-		}
 	}
 	return ;
 }

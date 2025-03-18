@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 16:54:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 17:32:37 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:49:00 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,21 @@ static void	swap(t_list **stack)
 void	sa(t_list **stack_a)
 {
 	swap(stack_a);
+	ft_printf("sa\n");
 	return ;
 }
 
 void	sb(t_list **stack_b)
 {
 	swap(stack_b);
+	ft_printf("sb\n");
 	return ;
 }
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
 	return ;
 }

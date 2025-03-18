@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:48:35 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 18:02:30 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:47:59 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,21 @@ static void	rotate(t_list **stack)
 void	ra(t_list **stack_a)
 {
 	rotate(stack_a);
+	ft_printf("ra\n");
 	return ;
 }
 
 void	rb(t_list **stack_b)
 {
 	rotate(stack_b);
+	ft_printf("rb\n");
 	return ;
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
 	return ;
 }
