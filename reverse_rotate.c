@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:12:08 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:47:04 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:04:08 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static t_list	*find_second_last_node(t_list **stack)
 {
 	t_list	*second_last_node;
 
-	if(*stack == NULL || (*stack)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return (NULL);
 	second_last_node = *stack;
-	while(second_last_node->next->next != NULL)
+	while (second_last_node->next->next != NULL)
 		second_last_node = second_last_node->next;
 	return (second_last_node);
 }
@@ -33,8 +33,8 @@ static void	reverse_rotate(t_list **stack)
 	head = *stack;
 	tail = ft_lstlast(*stack);
 	second_last = find_second_last_node(stack);
-	if(second_last == NULL)
-		return;
+	if (second_last == NULL)
+		return ;
 	tail->next = head;
 	second_last->next = NULL;
 	*stack = tail;

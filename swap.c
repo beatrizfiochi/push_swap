@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 16:54:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:49:00 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:05:42 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	swap(t_list **stack)
 
 	head = *stack;
 	second = head->next;
-	if(second == NULL)
+	if (second == NULL)
 		return ;
 	head->next = second->next;
 	second->next = head;

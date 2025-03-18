@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/17 23:37:45 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:54:35 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static int	syntax_error(t_data *data)
 	while (*s != NULL)
 	{
 		i = 0;
-		if((*s)[i] == '+' || (*s)[i] == '-')
+		if ((*s)[i] == '+' || (*s)[i] == '-')
 			i++;
-		if((*s)[i] == '\0')
+		if ((*s)[i] == '\0')
 			print_error(data);
 		while ((*s)[i] != '\0')
 		{
@@ -84,7 +84,7 @@ int	handle_input(int argc, char **argv, t_data *data, t_list **stack_a)
 	}
 	syntax_error(data);
 	s = data->args;
-	while(*s != NULL)
+	while (*s != NULL)
 	{
 		is_duplicate(data, ft_atol(*s), s);
 		s++;

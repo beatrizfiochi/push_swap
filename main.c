@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:32:36 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:12:11 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:20:39 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	print_node(void *vnode)
 {
 	t_node	*node;
+
 	node = (t_node *)vnode;
 	ft_printf("nbr: %d\n", node->nbr);
 }

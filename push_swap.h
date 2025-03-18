@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:10:42 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:06:56 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 # include <unistd.h>
 
-typedef struct	s_node
+typedef struct s_node
 {
 	int	nbr;
 	int	min;
@@ -32,10 +32,9 @@ typedef struct s_data
 	bool			args_need_free;
 }	t_data;
 
-
-int	handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
-int	find_min(t_list **stack);
-int	find_max(t_list **stack);
+int		handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
+int		find_min(t_list **stack);
+int		find_max(t_list **stack);
 
 long	ft_atol(const char *nbr);
 

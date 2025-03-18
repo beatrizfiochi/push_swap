@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/02/18 16:32:35 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:08:16 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ long	ft_atol(const char *nbr)
 	num = 0;
 	while (nbr[i] == 32 || (nbr[i] >= 9 && nbr[i] <= 13))
 		i++;
-	if(nbr[i] == '-' || nbr[i] == '+')
+	if (nbr[i] == '-' || nbr[i] == '+')
 	{
-		if(nbr[i] == '-')
+		if (nbr[i] == '-')
 			sign = sign * (-1);
 		i++;
 	}
@@ -48,7 +48,7 @@ void	clear_data(t_data *data)
 {
 	char	**s;
 
-	if(data->args_need_free == true)
+	if (data->args_need_free == true)
 	{
 		s = data->args;
 		while (*s != NULL)
@@ -58,4 +58,42 @@ void	clear_data(t_data *data)
 		}
 		free(data->args);
 	}
+}
+
+int	find_min(t_list **stack)
+{
+	t_list	*current;
+	t_node	*min_node;
+	t_node	*node;
+
+	current = *stack;
+	min_node = (t_node *)(current->content);
+	while (current != NULL)
+	{
+		node = (t_node *)(current->content);
+		if (node->nbr < min_node->nbr)
+			min_node = node;
+		current = current->next;
+	}
+	min_node->min = min_node->nbr;
+	return (min_node->min);
+}
+
+int	find_max(t_list **stack)
+{
+	t_list	*current;
+	t_node	*max_node;
+	t_node	*node;
+
+	current = *stack;
+	max_node = (t_node *)(current->content);
+	while (current != NULL)
+	{
+		node = (t_node *)(current->content);
+		if (node->nbr > max_node->nbr)
+			max_node = node;
+		current = current->next;
+	}
+	max_node->max = max_node->nbr;
+	return (max_node->max);
 }

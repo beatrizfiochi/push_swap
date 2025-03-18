@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:34:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:47:16 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:03:23 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	head_a = *stack_a;
 	head_b = *stack_b;
 	second_b = head_b->next;
-	if(head_b == NULL)
+	if (head_b == NULL)
 		return ;
 	head_b->next = head_a;
 	*stack_a = head_b;
@@ -39,7 +39,7 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	head_a = *stack_a;
 	head_b = *stack_b;
 	second_a = head_a->next;
-	if(head_a == NULL)
+	if (head_a == NULL)
 		return ;
 	head_a->next = head_b;
 	*stack_b = head_a;

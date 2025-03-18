@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:48:35 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 14:47:59 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:04:45 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void	rotate(t_list **stack)
 	head = *stack;
 	tail = ft_lstlast(*stack);
 	second = head->next;
-	if(second == NULL)
-		return;
+	if (second == NULL)
+		return ;
 	tail->next = head;
 	head->next = NULL;
 	*stack = second;
