@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/21 16:32:35 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/21 19:36:42 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,40 +60,40 @@ void	clear_data(t_data *data)
 	}
 }
 
-t_node	*find_min(t_list **stack)
+t_list	*find_min(t_list **stack)
 {
 	t_list	*current;
-	t_node	*min_node;
+	t_list	*min_node;
 	t_node	*node;
 
 	current = *stack;
-	min_node = (t_node *)(current->content);
+	min_node = current;
 	while (current != NULL)
 	{
 		node = (t_node *)(current->content);
-		if (node->nbr < min_node->nbr)
-			min_node = node;
+		if (node->nbr < ((t_node *)min_node->content)->nbr)
+			min_node = current;
 		current = current->next;
 	}
-	min_node->min = min_node->nbr;
+	((t_node *)min_node->content)->min = ((t_node *)min_node->content)->nbr;
 	return (min_node);
 }
 
-t_node	*find_max(t_list **stack)
+t_list	*find_max(t_list **stack)
 {
 	t_list	*current;
-	t_node	*max_node;
+	t_list	*max_node;
 	t_node	*node;
 
 	current = *stack;
-	max_node = (t_node *)(current->content);
+	max_node = current;
 	while (current != NULL)
 	{
 		node = (t_node *)(current->content);
-		if (node->nbr > max_node->nbr)
-			max_node = node;
+		if (node->nbr > ((t_node *)max_node->content)->nbr)
+			max_node = current;
 		current = current->next;
 	}
-	max_node->max = max_node->nbr;
+	((t_node *)max_node->content)->max = ((t_node *)max_node->content)->nbr;                                            //to do ver se preciso disso
 	return (max_node);
 }

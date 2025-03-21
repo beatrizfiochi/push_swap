@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/21 16:32:58 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/21 19:25:38 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 
 typedef struct s_node
 {
-	int				nbr;
-	int				min;
-	int				max;
-	struct s_node	*target;
+	int		nbr;
+	int		min;
+	int		max;
+	int		index;
+	t_list	*target;
 }	t_node;
 
 typedef struct s_data
@@ -34,8 +35,11 @@ typedef struct s_data
 }	t_data;
 
 int		handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
-t_node	*find_min(t_list **stack);
-t_node	*find_max(t_list **stack);
+// int	middle(t_list **stack);
+int	cost(t_list **stack, int size_list);
+
+t_list	*find_min(t_list **stack);
+t_list	*find_max(t_list **stack);
 
 long	ft_atol(const char *nbr);
 
@@ -57,6 +61,7 @@ void	sort_two(t_list **stack);
 void	sort_three(t_list **stack);
 void	sort(t_list **stack_a, t_list **stack_b);
 void	find_target_of_a_node(t_node *a, t_list **stack_b);
+void	put_index(t_list **stack);
 
 bool	is_sorted(t_list **stack);
 

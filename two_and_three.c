@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:35:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/21 16:34:11 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/21 19:28:04 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static bool	need_sa(t_list **stack, t_list *h, t_list *sd, t_list *t)
 	int		min;
 	int		max;
 
-	min = find_min(stack)->min;
-	max = find_max(stack)->max;
+	min = ((t_node *)find_min(stack)->content)->min;
+	max = ((t_node *)find_max(stack)->content)->max;
 	if ((min == ((t_node *)(h->content))->nbr
 		&& max == ((t_node *)(sd->content))->nbr)
 		|| (min == ((t_node *)(sd->content))->nbr
@@ -56,8 +56,8 @@ static bool	need_ra(t_list **stack, t_list *h, t_list *sd, t_list *t)
 	int		min;
 	int		max;
 
-	min = find_min(stack)->min;
-	max = find_max(stack)->max;
+	min = ((t_node *)find_min(stack)->content)->min;
+	max = ((t_node *)find_max(stack)->content)->max;
 	if ((max == ((t_node *)(h->content))->nbr
 		&& min == ((t_node *)(sd->content))->nbr)
 		|| (max == ((t_node *)(h->content))->nbr
@@ -75,8 +75,8 @@ void	sort_three(t_list **stack)
 	int		min;
 	int		max;
 
-	min = find_min(stack)->min;
-	max = find_max(stack)->max;
+	min = ((t_node *)find_min(stack)->content)->min;
+	max = ((t_node *)find_max(stack)->content)->max;
 	while (is_sorted(stack) == false)
 	{
 		h = *stack;
