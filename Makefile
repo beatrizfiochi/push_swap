@@ -6,7 +6,7 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/02 17:15:19 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/03/17 18:36:02 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/03/21 13:53:02 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ LIBFT_DIR = ./libft
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -ggdb
 SRCS = main.c handle_input.c utils.c inicializing_stacks.c swap.c push.c\
-		rotate.c reverse_rotate.c two_and_three.c
+		rotate.c reverse_rotate.c two_and_three.c sort.c find_targets.c\
+		
 OBJS = $(SRCS:.c=.o)
 RM = rm -rf
 

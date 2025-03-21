@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 15:08:16 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:32:35 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	clear_data(t_data *data)
 	}
 }
 
-int	find_min(t_list **stack)
+t_node	*find_min(t_list **stack)
 {
 	t_list	*current;
 	t_node	*min_node;
@@ -76,10 +76,10 @@ int	find_min(t_list **stack)
 		current = current->next;
 	}
 	min_node->min = min_node->nbr;
-	return (min_node->min);
+	return (min_node);
 }
 
-int	find_max(t_list **stack)
+t_node	*find_max(t_list **stack)
 {
 	t_list	*current;
 	t_node	*max_node;
@@ -95,5 +95,5 @@ int	find_max(t_list **stack)
 		current = current->next;
 	}
 	max_node->max = max_node->nbr;
-	return (max_node->max);
+	return (max_node);
 }
