@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 10:26:46 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/23 12:55:20 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/23 17:45:10 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,42 +94,36 @@ static int	cost_rev_rot(t_list *current_a, int size_list_a, int size_list_b)
 	return (total_cost);
 }
 
-int	cost(t_list *current_a, t_list **stack_a, t_list **stack_b)
+void	fill_cost(t_cost *cost_op, t_list *current, int cost, int op)
+{
+	cost_op->operation = op;
+	cost_op->cost = cost;
+	cost_op->cheapest = current;
+}
+
+int	cost(t_list *current_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest)
 {
 	int		sz_l_a;
 	int		sz_l_b;
-	int		rot;
-	int		rev;
-	int		rot_rev;
-	int		rev_rot;
+	int		cost;
 
 	put_index(stack_a);
 	put_index(stack_b);
 	sz_l_a = ft_lstsize(*stack_a);
 	sz_l_b = ft_lstsize(*stack_b);
-	rot = cost_rot_all(current_a, sz_l_a, sz_l_b);
-	rev = cost_rev_all(current_a, sz_l_a, sz_l_b);
-	rot_rev = cost_rot_rev(current_a, sz_l_a, sz_l_b);
-	rev_rot = cost_rev_rot(current_a, sz_l_a, sz_l_b);
-	if (rot <= rev && rot <= rot_rev && rot <= rev_rot)
-	{
-		ft_printf("total cost of: %d, is %d\n\n\n", ((t_node *)(current_a->content))->nbr, rot); /////APAGAR
-		return (rot);
-	}
-	else if (rev <= rot && rev <= rot_rev && rev <= rev_rot)
-	{
-		ft_printf("total cost of: %d, is %d\n\n\n", ((t_node *)(current_a->content))->nbr, rev); /////APAGAR
-		return (rev);
-	}
-	else if (rot_rev <= rot && rot_rev <= rev && rot_rev <= rev_rot)
-	{
-		ft_printf("total cost of: %d, is %d\n\n\n", ((t_node *)(current_a->content))->nbr, rot_rev); /////APAGAR
-		return (rot_rev);
-	}
-	else if (rev_rot <= rot && rev_rot <= rev && rev_rot <= rot_rev)
-	{
-		ft_printf("total cost of: %d, is %d\n\n\n", ((t_node *)(current_a->content))->nbr, rev_rot); /////APAGAR
-		return (rev_rot);
-	}
-	return (0);
+	cheapest->cost = INT_MAX;
+	cost = cost_rot_all(current_a, sz_l_a, sz_l_b);
+	if (cost < cheapest->cost)
+		fill_cost(cheapest, current_a, cost, OP_ROTATE);
+	cost = cost_rev_all(current_a, sz_l_a, sz_l_b);
+	if (cost < cheapest->cost)
+		fill_cost(cheapest, current_a, cost, OP_REVERSE);
+	cost = cost_rot_rev(current_a, sz_l_a, sz_l_b);
+	if (cost < cheapest->cost)
+		fill_cost(cheapest, current_a, cost, OP_ROT_REV);
+	cost = cost_rev_rot(current_a, sz_l_a, sz_l_b);
+	if (cost < cheapest->cost)
+		fill_cost(cheapest, current_a, cost, OP_REV_ROT);
+	ft_printf("total cost of: %d, is %d (op: %d)\n\n\n", ((t_node *)(cheapest->cheapest->content))->nbr, cheapest->cost, cheapest->operation); /////APAGAR
+	return (cheapest->cost);
 }
