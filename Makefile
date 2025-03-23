@@ -6,7 +6,7 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/02 17:15:19 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/03/21 17:59:33 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/03/23 11:34:06 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -ggdb
 SRCS = main.c handle_input.c utils.c inicializing_stacks.c swap.c push.c\
 		rotate.c reverse_rotate.c two_and_three.c sort.c find_targets.c\
-		costs.c utils_calc.c
+		utils_calc.c costs_calc.c execute_step.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -rf
 
