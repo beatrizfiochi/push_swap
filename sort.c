@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:06:33 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/23 17:03:28 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:49:09 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	sort(t_list **stack_a, t_list **stack_b)
 		execute_step(stack_a, stack_b);
 		lst_size = ft_lstsize(*stack_a);
 	}
+	sort_three(stack_a);
 	return ;
 }
