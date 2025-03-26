@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/26 15:44:17 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:56:45 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,14 +171,14 @@ void	execute_step(t_list **stack_a, t_list **stack_b)
 	while (current_a != NULL)
 	{
 			find_target_of_a_node((t_node *)(current_a->content), stack_b);
-			ft_printf("\n\n\nTARGET OF: %d, is %d\n", ((t_node *)(current_a->content))->nbr, ((t_node *)(((t_node *)(current_a->content))->target->content))->nbr); //APAGAR
+			// ft_printf("\n\n\nTARGET OF: %d, is %d\n", ((t_node *)(current_a->content))->nbr, ((t_node *)(((t_node *)(current_a->content))->target->content))->nbr); //APAGAR
 			cost(current_a, stack_a, stack_b, &current_node);
 			if (current_node.cost < cheapest_node.cost)
 				cheapest_node = current_node;
 			current_a = current_a->next;
 	}
-	ft_printf("\n\n\nThe cheapest node is: %d, the cost is %d\n", ((t_node *)(cheapest_node.cheapest->content))->nbr, cheapest_node.cost); //APAGAR
-	ft_printf("Chosen operation: %d\n", cheapest_node.operation);
+	// ft_printf("\n\n\nThe cheapest node is: %d, the cost is %d\n", ((t_node *)(cheapest_node.cheapest->content))->nbr, cheapest_node.cost); //APAGAR
+	// ft_printf("Chosen operation: %d\n", cheapest_node.operation);
 	if (cheapest_node.operation == OP_ROTATE)
 	{
 		step_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->target, stack_b);
