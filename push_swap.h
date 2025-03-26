@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/23 17:26:25 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:36:54 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_cost
 
 int		handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
 int		cost(t_list *current_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest);
+int		median(t_list **stack);
 
 t_list	*find_min(t_list **stack);
 t_list	*find_max(t_list **stack);
@@ -75,6 +76,8 @@ void	sort(t_list **stack_a, t_list **stack_b);
 void	find_target_of_a_node(t_node *a, t_list **stack_b);
 void	put_index(t_list **stack);
 void	execute_step(t_list **stack_a, t_list **stack_b);
+void	find_target_of_b_node(t_node *b, t_list **stack_a);
+void	execute_final_steps(t_list **stack_b, t_list **stack_a);
 
 bool	is_sorted(t_list **stack);
 

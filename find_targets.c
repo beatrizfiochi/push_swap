@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:52:34 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/21 19:39:38 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:14:06 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,52 @@ void	find_target_of_a_node(t_node *a, t_list **stack_b)
 	}
 	else
 		a->target = find_closest_smaller(a, stack_b);
+	return ;
+}
+
+static t_list	*find_closest_bigger(t_node *b, t_list **stack_a)
+{
+	t_list	*a;
+	t_node	*a_node;
+	t_list	*closest;
+	int		small_diff;
+	int		tmp_diff;
+
+	a = *stack_a;
+	closest = NULL;
+	small_diff = INT_MAX;
+	while (a != NULL)
+	{
+		a_node = (t_node *)(a->content);
+		if (a_node->nbr > b->nbr)
+		{
+			tmp_diff = a_node->nbr - b->nbr;
+			if (tmp_diff < small_diff)
+			{
+				small_diff = tmp_diff;
+				closest = a;
+			}
+		}
+		a = a->next;
+	}
+	return (closest);
+}
+
+void	find_target_of_b_node(t_node *b, t_list **stack_a)
+{
+	t_list	*min;
+	t_list	*max;
+
+
+	min = find_min(stack_a);
+	max = find_max(stack_a);
+
+	if (b->nbr > ((t_node *)max->content)->nbr)
+	{
+		b->target = min;
+		return ;
+	}
+	else
+		b->target = find_closest_bigger(b, stack_a);
 	return ;
 }
