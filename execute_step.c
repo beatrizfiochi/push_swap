@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/26 14:44:15 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:44:17 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,42 @@ static void	step_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 {
 	int	cheapest_node_cost;
 	int	target_cost;
-	int	real_cost;
 	int	performed_op;
-	int	sum_cost;
+	int	min;
 	t_list *cheapest_node;
 
+	min = 0;
 	cheapest_node = cheapest_cost->cheapest;
 	cheapest_node_cost = ((t_node *)(cheapest_node->content))->index;
 	target_cost = ((t_node *)(target->content))->index;
-	real_cost = cheapest_cost->cost;
-	sum_cost = cheapest_node_cost + target_cost;
 	performed_op = 0;
-	while (real_cost != 0 && real_cost <= sum_cost)
+	if (cheapest_node_cost <= target_cost)
+		min = cheapest_node_cost;
+	if (target_cost < cheapest_node_cost)
+		min = target_cost;
+	while (min > 0)
 	{
 		rr(a, b);
-		sum_cost--;
+		min--;
 		performed_op++;
 	}
-	cheapest_node_cost = cheapest_node_cost - performed_op;
-	while (cheapest_node_cost > 0)
+	if (cheapest_node_cost > target_cost)
 	{
-		ra(a);
-		cheapest_node_cost--;
+			cheapest_node_cost = cheapest_node_cost - performed_op;
+			while (cheapest_node_cost > 0)
+			{
+				ra(a);
+				cheapest_node_cost--;
+			}
 	}
-	target_cost = target_cost - performed_op;
-	while (target_cost > 0)
+	if (cheapest_node_cost < target_cost)
 	{
-		rb(b);
-		target_cost--;
+		target_cost = target_cost - performed_op;
+		while (target_cost > 0)
+		{
+			rb(b);
+			target_cost--;
+		}
 	}
 	return ;
 }
@@ -52,34 +60,50 @@ static void	step_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 {
 	int	cheapest_node_cost;
 	int	target_cost;
-	int	real_cost;
 	int	performed_op;
-	int	sum_cost;
+	int	min;
+	int	size_list_a;
+	int	size_list_b;
 	t_list *cheapest_node;
 
+	min = 0;
 	cheapest_node = cheapest_cost->cheapest;
-	cheapest_node_cost = ((t_node *)(cheapest_node->content))->index;
-	target_cost = ((t_node *)(target->content))->index;
-	real_cost = cheapest_cost->cost;
-	sum_cost = cheapest_node_cost + target_cost;
+	size_list_a = ft_lstsize(*a);
+	size_list_b = ft_lstsize(*b);
+	target_cost = 0;
+	cheapest_node_cost = 0;
+	if (((t_node *)(cheapest_node->content))->index != 0)
+		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->index;
+	if (((t_node *)(target->content))->index != 0)
+		target_cost = size_list_b - ((t_node *)(target->content))->index;
 	performed_op = 0;
-	while (real_cost != 0 && real_cost <= sum_cost)
+	if (cheapest_node_cost <= target_cost)
+		min = cheapest_node_cost;
+	if (target_cost < cheapest_node_cost)
+		min = target_cost;
+	while (min > 0)
 	{
 		rrr(a, b);
-		sum_cost--;
+		min--;
 		performed_op++;
 	}
-	cheapest_node_cost = cheapest_node_cost - performed_op;
-	while (cheapest_node_cost > 0)
+	if (cheapest_node_cost > target_cost)
 	{
-		rra(a);
-		cheapest_node_cost--;
+			cheapest_node_cost = cheapest_node_cost - performed_op;
+			while (cheapest_node_cost > 0)
+			{
+				rra(a);
+				cheapest_node_cost--;
+			}
 	}
-	target_cost = target_cost - performed_op;
-	while (target_cost > 0)
+	if (cheapest_node_cost < target_cost)
 	{
-		rrb(b);
-		target_cost--;
+		target_cost = target_cost - performed_op;
+		while (target_cost > 0)
+		{
+			rrb(b);
+			target_cost--;
+		}
 	}
 	return ;
 }
@@ -88,11 +112,15 @@ static void	step_rot_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_li
 {
 	int	cheapest_node_cost;
 	int	target_cost;
+	int	size_list_b;
 	t_list *cheapest_node;
 
 	cheapest_node = cheapest_cost->cheapest;
+	size_list_b = ft_lstsize(*b);
+	target_cost = 0;
 	cheapest_node_cost = ((t_node *)(cheapest_node->content))->index;
-	target_cost = ((t_node *)(target->content))->index;
+	if (((t_node *)(target->content))->index != 0)
+		target_cost = size_list_b - ((t_node *)(target->content))->index;
 	while (cheapest_node_cost > 0)
 	{
 		ra(a);
@@ -110,10 +138,14 @@ static void	step_rev_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_li
 {
 	int	cheapest_node_cost;
 	int	target_cost;
+	int	size_list_a;
 	t_list *cheapest_node;
 
 	cheapest_node = cheapest_cost->cheapest;
-	cheapest_node_cost = ((t_node *)(cheapest_node->content))->index;
+	size_list_a = ft_lstsize(*a);
+	cheapest_node_cost = 0;
+	if (((t_node *)(cheapest_node->content))->index != 0)
+		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->index;
 	target_cost = ((t_node *)(target->content))->index;
 	while (cheapest_node_cost > 0)
 	{
