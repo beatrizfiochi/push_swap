@@ -6,11 +6,18 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:16:02 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:16:21 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:24:56 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	do_op_index(t_list **stack, void (*func)(t_list **))
+{
+	func(stack);
+	put_index(stack);
+	return ;
+}
 
 // t_list *b = * to current b node
 void	execute_final_steps(t_list **stack_b, t_list **stack_a)
@@ -30,21 +37,14 @@ void	execute_final_steps(t_list **stack_b, t_list **stack_a)
 		{
 			while (((t_node *)(((t_node *)(b->content))->tgt->content))->idx
 				!= 0)
-			{
-				rra(stack_a);
-				put_index(stack_a);
-			}
+				do_op_index(stack_a, rra);
 		}
 		else
 		{
 			while (((t_node *)(((t_node *)(b->content))->tgt->content))->idx
 				!= 0)
-			{
-				ra(stack_a);
-				put_index(stack_a);
-			}
+				do_op_index(stack_a, ra);
 		}
 	}
 	pa(stack_a, stack_b);
-	return ;
 }
