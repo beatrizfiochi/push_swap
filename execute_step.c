@@ -6,22 +6,22 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:16:28 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:41:40 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	step_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_list **b)
+static void	step_rt(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
 {
-	int	cheapest_node_cost;
-	int	target_cost;
-	int	performed_op;
-	int	min;
-	t_list *cheapest_node;
+	int		cheapest_node_cost;
+	int		target_cost;
+	int		performed_op;
+	int		min;
+	t_list	*cheapest_node;
 
 	min = 0;
-	cheapest_node = cheapest_cost->cheapest;
+	cheapest_node = cheap_cost->cheap;
 	cheapest_node_cost = ((t_node *)(cheapest_node->content))->idx;
 	target_cost = ((t_node *)(target->content))->idx;
 	performed_op = 0;
@@ -37,12 +37,12 @@ static void	step_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 	}
 	if (cheapest_node_cost > target_cost)
 	{
-			cheapest_node_cost = cheapest_node_cost - performed_op;
-			while (cheapest_node_cost > 0)
-			{
-				ra(a);
-				cheapest_node_cost--;
-			}
+		cheapest_node_cost = cheapest_node_cost - performed_op;
+		while (cheapest_node_cost > 0)
+		{
+			ra(a);
+			cheapest_node_cost--;
+		}
 	}
 	if (cheapest_node_cost < target_cost)
 	{
@@ -56,30 +56,30 @@ static void	step_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 	return ;
 }
 
-static void	step_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_list **b)
+static void	step_rv(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
 {
-	int	cheapest_node_cost;
-	int	target_cost;
-	int	performed_op;
-	int	min;
-	int	size_list_a;
-	int	size_list_b;
-	t_list *cheapest_node;
+	int		cheap_node_cost;
+	int		target_cost;
+	int		performed_op;
+	int		min;
+	int		sz_lst_a;
+	int		sz_lst_b;
+	t_list	*cheapest_node;
 
 	min = 0;
-	cheapest_node = cheapest_cost->cheapest;
-	size_list_a = ft_lstsize(*a);
-	size_list_b = ft_lstsize(*b);
+	cheapest_node = cheap_cost->cheap;
+	sz_lst_a = ft_lstsize(*a);
+	sz_lst_b = ft_lstsize(*b);
 	target_cost = 0;
-	cheapest_node_cost = 0;
+	cheap_node_cost = 0;
 	if (((t_node *)(cheapest_node->content))->idx != 0)
-		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->idx;
+		cheap_node_cost = sz_lst_a - ((t_node *)(cheapest_node->content))->idx;
 	if (((t_node *)(target->content))->idx != 0)
-		target_cost = size_list_b - ((t_node *)(target->content))->idx;
+		target_cost = sz_lst_b - ((t_node *)(target->content))->idx;
 	performed_op = 0;
-	if (cheapest_node_cost <= target_cost)
-		min = cheapest_node_cost;
-	if (target_cost < cheapest_node_cost)
+	if (cheap_node_cost <= target_cost)
+		min = cheap_node_cost;
+	if (target_cost < cheap_node_cost)
 		min = target_cost;
 	while (min > 0)
 	{
@@ -87,16 +87,16 @@ static void	step_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 		min--;
 		performed_op++;
 	}
-	if (cheapest_node_cost > target_cost)
+	if (cheap_node_cost > target_cost)
 	{
-			cheapest_node_cost = cheapest_node_cost - performed_op;
-			while (cheapest_node_cost > 0)
-			{
-				rra(a);
-				cheapest_node_cost--;
-			}
+		cheap_node_cost = cheap_node_cost - performed_op;
+		while (cheap_node_cost > 0)
+		{
+			rra(a);
+			cheap_node_cost--;
+		}
 	}
-	if (cheapest_node_cost < target_cost)
+	if (cheap_node_cost < target_cost)
 	{
 		target_cost = target_cost - performed_op;
 		while (target_cost > 0)
@@ -108,19 +108,19 @@ static void	step_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 	return ;
 }
 
-static void	step_rot_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_list **b)
+static void	step_rt_rv(t_cost *cheap_cost, t_list **a, t_list *tgt, t_list **b)
 {
-	int	cheapest_node_cost;
-	int	target_cost;
-	int	size_list_b;
-	t_list *cheapest_node;
+	int		cheapest_node_cost;
+	int		target_cost;
+	int		size_list_b;
+	t_list	*cheapest_node;
 
-	cheapest_node = cheapest_cost->cheapest;
+	cheapest_node = cheap_cost->cheap;
 	size_list_b = ft_lstsize(*b);
 	target_cost = 0;
 	cheapest_node_cost = ((t_node *)(cheapest_node->content))->idx;
-	if (((t_node *)(target->content))->idx != 0)
-		target_cost = size_list_b - ((t_node *)(target->content))->idx;
+	if (((t_node *)(tgt->content))->idx != 0)
+		target_cost = size_list_b - ((t_node *)(tgt->content))->idx;
 	while (cheapest_node_cost > 0)
 	{
 		ra(a);
@@ -134,23 +134,23 @@ static void	step_rot_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_li
 	return ;
 }
 
-static void	step_rev_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_list **b)
+static void	step_rv_rt(t_cost *cheap_cost, t_list **a, t_list *tgt, t_list **b)
 {
-	int	cheapest_node_cost;
-	int	target_cost;
-	int	size_list_a;
-	t_list *cheapest_node;
+	int		cheap_node_cost;
+	int		target_cost;
+	int		size_list_a;
+	t_list	*cheap_node;
 
-	cheapest_node = cheapest_cost->cheapest;
+	cheap_node = cheap_cost->cheap;
 	size_list_a = ft_lstsize(*a);
-	cheapest_node_cost = 0;
-	if (((t_node *)(cheapest_node->content))->idx != 0)
-		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->idx;
-	target_cost = ((t_node *)(target->content))->idx;
-	while (cheapest_node_cost > 0)
+	cheap_node_cost = 0;
+	if (((t_node *)(cheap_node->content))->idx != 0)
+		cheap_node_cost = size_list_a - ((t_node *)(cheap_node->content))->idx;
+	target_cost = ((t_node *)(tgt->content))->idx;
+	while (cheap_node_cost > 0)
 	{
 		rra(a);
-		cheapest_node_cost--;
+		cheap_node_cost--;
 	}
 	while (target_cost > 0)
 	{
@@ -160,41 +160,33 @@ static void	step_rev_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_li
 	return ;
 }
 
-void	execute_step(t_list **stack_a, t_list **stack_b)
+void	execute_step(t_list **a, t_list **b)
 {
 	t_list	*current_a;
-	t_cost	cheapest_node;
+	t_cost	chp_node;
 	t_cost	current_node;
 
-	current_a = *stack_a;
-	cheapest_node.cost = INT_MAX;
+	current_a = *a;
+	chp_node.cost = INT_MAX;
 	while (current_a != NULL)
 	{
-			find_target_of_a_node((t_node *)(current_a->content), stack_b);
-			// ft_printf("\n\n\nTARGET OF: %d, is %d\n", ((t_node *)(current_a->content))->nbr, ((t_node *)(((t_node *)(current_a->content))->target->content))->nbr); //APAGAR
-			cost(current_a, stack_a, stack_b, &current_node);
-			if (current_node.cost < cheapest_node.cost)
-				cheapest_node = current_node;
-			current_a = current_a->next;
+		find_target_of_a_node((t_node *)(current_a->content), b);
+		// ft_printf("\n\n\nTARGET OF: %d, is %d\n", ((t_node *)(current_a->content))->nbr, ((t_node *)(((t_node *)(current_a->content))->target->content))->nbr); //APAGAR
+		cost(current_a, a, b, &current_node);
+		if (current_node.cost < chp_node.cost)
+			chp_node = current_node;
+		current_a = current_a->next;
 	}
-	// ft_printf("\n\n\nThe cheapest node is: %d, the cost is %d\n", ((t_node *)(cheapest_node.cheapest->content))->nbr, cheapest_node.cost); //APAGAR
-	// ft_printf("Chosen operation: %d\n", cheapest_node.operation);
-	if (cheapest_node.operation == OP_ROTATE)
-	{
-		step_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
-	}
-	if (cheapest_node.operation == OP_REVERSE)
-	{
-		step_rev(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
-	}
-	if (cheapest_node.operation == OP_ROT_REV)
-	{
-		step_rot_rev(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
-	}
-	if (cheapest_node.operation == OP_REV_ROT)
-	{
-		step_rev_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
-	}
-	pb(stack_a, stack_b);
+	// ft_printf("\n\n\nThe cheapest node is: %d, the cost is %d\n", ((t_node *)(chp_node.cheapest->content))->nbr, chp_node.cost); //APAGAR
+	// ft_printf("Chosen operation: %d\n", chp_node.operation);
+	if (chp_node.operation == OP_ROTATE)
+		step_rt(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
+	if (chp_node.operation == OP_REVERSE)
+		step_rv(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
+	if (chp_node.operation == OP_ROT_REV)
+		step_rt_rv(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
+	if (chp_node.operation == OP_REV_ROT)
+		step_rv_rt(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
+	pb(a, b);
 	return ;
 }

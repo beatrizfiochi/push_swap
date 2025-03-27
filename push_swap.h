@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:15:52 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:36:52 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_data
 
 typedef struct s_cost
 {
-	t_list	*cheapest;
+	t_list	*cheap;
 	int		cost;
 	int		operation;
 } t_cost;
