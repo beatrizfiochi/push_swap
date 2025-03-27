@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 17:44:21 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:31:44 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:33:48 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ int	cost_utils(t_list **stack, int index)
 		cost = ft_lstsize(*stack) - index;
 	return (cost);
 }
-
