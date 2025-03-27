@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 10:26:46 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/26 17:56:27 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:58:03 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,6 @@ static int	cost_rev_rot(t_list *current_a, int size_list_a, int size_list_b)
 	target_cost = target_node->index;
 	total_cost = a_cost + target_cost;
 	return (total_cost);
-}
-
-void	fill_cost(t_cost *cost_op, t_list *current, int cost, int op)
-{
-	cost_op->operation = op;
-	cost_op->cost = cost;
-	cost_op->cheapest = current;
 }
 
 int	cost(t_list *current_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest)

@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/26 17:36:54 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:57:55 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	put_index(t_list **stack);
 void	execute_step(t_list **stack_a, t_list **stack_b);
 void	find_target_of_b_node(t_node *b, t_list **stack_a);
 void	execute_final_steps(t_list **stack_b, t_list **stack_a);
+void	fill_cost(t_cost *cost_op, t_list *current, int cost, int op);
 
 bool	is_sorted(t_list **stack);
 
