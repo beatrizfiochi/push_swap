@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:16:02 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:24:56 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:35:39 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	execute_final_steps(t_list **stack_b, t_list **stack_a)
 
 	b = *stack_b;
 	find_target_of_b_node((t_node *)(b->content), stack_a);
-	// ft_printf("\n\n\nTARGET OF: %d, is %d\n", ((t_node *)(b->content))->nbr, ((t_node *)(((t_node *)(b->content))->target->content))->nbr); //APAGAR
 	put_index(stack_a);
 	if (((t_node *)(((t_node *)(b->content))->tgt->content))->idx > 0)
 	{

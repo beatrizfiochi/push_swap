@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 10:26:46 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:31:15 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:35:21 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,5 @@ int	cost(t_list *curr_a, t_list **a, t_list **b, t_cost *cheapest)
 	cost = cost_rev_rot(curr_a, sz_l_a, sz_l_b);
 	if (cost < cheapest->cost)
 		fill_cost(cheapest, curr_a, cost, OP_REV_ROT);
-	// ft_printf("total cost of: %d, is %d (op: %d)\n\n\n", ((t_node *)(cheapest->cheapest->content))->nbr, cheapest->cost, cheapest->operation); /////APAGAR
 	return (cheapest->cost);
 }

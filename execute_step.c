@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:25:41 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:36:00 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,14 +133,11 @@ void	execute_step(t_list **a, t_list **b)
 	while (current_a != NULL)
 	{
 		find_target_of_a_node((t_node *)(current_a->content), b);
-		// ft_printf("\n\n\nTARGET OF: %d, is %d\n", ((t_node *)(current_a->content))->nbr, ((t_node *)(((t_node *)(current_a->content))->target->content))->nbr); //APAGAR
 		cost(current_a, a, b, &current_node);
 		if (current_node.cost < chp_node.cost)
 			chp_node = current_node;
 		current_a = current_a->next;
 	}
-	// ft_printf("\n\n\nThe cheapest node is: %d, the cost is %d\n", ((t_node *)(chp_node.cheapest->content))->nbr, chp_node.cost); //APAGAR
-	// ft_printf("Chosen operation: %d\n", chp_node.operation);
 	if (chp_node.operation == OP_ROTATE)
 		step_rt(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
 	if (chp_node.operation == OP_REVERSE)
