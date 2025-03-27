@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:06:33 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 16:54:04 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:14:57 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	last_op(t_list **stack)
 
 	put_index(stack);
 	min_node = find_min(stack);
-	if (((t_node *)(min_node->content))->index != 0)
+	if (((t_node *)(min_node->content))->idx != 0)
 	{
 		median_of_lst = median(stack);
-		if (((t_node *)(min_node->content))->index >= median_of_lst)
+		if (((t_node *)(min_node->content))->idx >= median_of_lst)
 		{
-			while (((t_node *)(min_node->content))->index != 0)
+			while (((t_node *)(min_node->content))->idx != 0)
 			{
 				rra(stack);
 				put_index(stack);
@@ -32,7 +32,7 @@ static void	last_op(t_list **stack)
 		}
 		else
 		{
-			while (((t_node *)(min_node->content))->index != 0)
+			while (((t_node *)(min_node->content))->idx != 0)
 			{
 				ra(stack);
 				put_index(stack);

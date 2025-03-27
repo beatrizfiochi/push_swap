@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 10:26:46 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:03:38 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:16:13 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static int	cost_rot_all(t_list *current_a, int size_list_a, int size_list_b)
 	(void)size_list_a;
 	(void)size_list_b;
 	node = (t_node *)(current_a->content);
-	target_node = (t_node *)(node->target->content);
-	a_cost = node->index;
-	target_cost = target_node->index;
+	target_node = (t_node *)(node->tgt->content);
+	a_cost = node->idx;
+	target_cost = target_node->idx;
 	if (a_cost >= target_cost)
 		total_cost = a_cost;
 	else
@@ -42,13 +42,13 @@ static int	cost_rev_all(t_list *current_a, int size_list_a, int size_list_b)
 	int		total_cost;
 
 	node = (t_node *)(current_a->content);
-	target_node = (t_node *)(node->target->content);
+	target_node = (t_node *)(node->tgt->content);
 	a_cost = 0;
 	target_cost = 0;
-	if (node->index != 0)
-		a_cost = size_list_a - node->index;
-	if (target_node->index != 0)
-		target_cost = size_list_b - target_node->index;
+	if (node->idx != 0)
+		a_cost = size_list_a - node->idx;
+	if (target_node->idx != 0)
+		target_cost = size_list_b - target_node->idx;
 	if (a_cost >= target_cost)
 		total_cost = a_cost;
 	else
@@ -66,11 +66,11 @@ static int	cost_rot_rev(t_list *current_a, int size_list_a, int size_list_b)
 
 	(void)size_list_a;
 	node = (t_node *)(current_a->content);
-	target_node = (t_node *)(node->target->content);
-	a_cost = node->index;
+	target_node = (t_node *)(node->tgt->content);
+	a_cost = node->idx;
 	target_cost = 0;
-	if (target_node->index != 0)
-		target_cost = size_list_b - target_node->index;
+	if (target_node->idx != 0)
+		target_cost = size_list_b - target_node->idx;
 	total_cost = a_cost + target_cost;
 	return (total_cost);
 }
@@ -85,11 +85,11 @@ static int	cost_rev_rot(t_list *current_a, int size_list_a, int size_list_b)
 
 	(void)size_list_b;
 	node = (t_node *)(current_a->content);
-	target_node = (t_node *)(node->target->content);
+	target_node = (t_node *)(node->tgt->content);
 	a_cost = 0;
-	if (node->index != 0)
-		a_cost = size_list_a - node->index;
-	target_cost = target_node->index;
+	if (node->idx != 0)
+		a_cost = size_list_a - node->idx;
+	target_cost = target_node->idx;
 	total_cost = a_cost + target_cost;
 	return (total_cost);
 }

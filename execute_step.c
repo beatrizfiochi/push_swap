@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/26 17:56:45 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:16:28 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void	step_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 
 	min = 0;
 	cheapest_node = cheapest_cost->cheapest;
-	cheapest_node_cost = ((t_node *)(cheapest_node->content))->index;
-	target_cost = ((t_node *)(target->content))->index;
+	cheapest_node_cost = ((t_node *)(cheapest_node->content))->idx;
+	target_cost = ((t_node *)(target->content))->idx;
 	performed_op = 0;
 	if (cheapest_node_cost <= target_cost)
 		min = cheapest_node_cost;
@@ -72,10 +72,10 @@ static void	step_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_list *
 	size_list_b = ft_lstsize(*b);
 	target_cost = 0;
 	cheapest_node_cost = 0;
-	if (((t_node *)(cheapest_node->content))->index != 0)
-		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->index;
-	if (((t_node *)(target->content))->index != 0)
-		target_cost = size_list_b - ((t_node *)(target->content))->index;
+	if (((t_node *)(cheapest_node->content))->idx != 0)
+		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->idx;
+	if (((t_node *)(target->content))->idx != 0)
+		target_cost = size_list_b - ((t_node *)(target->content))->idx;
 	performed_op = 0;
 	if (cheapest_node_cost <= target_cost)
 		min = cheapest_node_cost;
@@ -118,9 +118,9 @@ static void	step_rot_rev(t_cost *cheapest_cost, t_list **a, t_list *target, t_li
 	cheapest_node = cheapest_cost->cheapest;
 	size_list_b = ft_lstsize(*b);
 	target_cost = 0;
-	cheapest_node_cost = ((t_node *)(cheapest_node->content))->index;
-	if (((t_node *)(target->content))->index != 0)
-		target_cost = size_list_b - ((t_node *)(target->content))->index;
+	cheapest_node_cost = ((t_node *)(cheapest_node->content))->idx;
+	if (((t_node *)(target->content))->idx != 0)
+		target_cost = size_list_b - ((t_node *)(target->content))->idx;
 	while (cheapest_node_cost > 0)
 	{
 		ra(a);
@@ -144,9 +144,9 @@ static void	step_rev_rot(t_cost *cheapest_cost, t_list **a, t_list *target, t_li
 	cheapest_node = cheapest_cost->cheapest;
 	size_list_a = ft_lstsize(*a);
 	cheapest_node_cost = 0;
-	if (((t_node *)(cheapest_node->content))->index != 0)
-		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->index;
-	target_cost = ((t_node *)(target->content))->index;
+	if (((t_node *)(cheapest_node->content))->idx != 0)
+		cheapest_node_cost = size_list_a - ((t_node *)(cheapest_node->content))->idx;
+	target_cost = ((t_node *)(target->content))->idx;
 	while (cheapest_node_cost > 0)
 	{
 		rra(a);
@@ -181,19 +181,19 @@ void	execute_step(t_list **stack_a, t_list **stack_b)
 	// ft_printf("Chosen operation: %d\n", cheapest_node.operation);
 	if (cheapest_node.operation == OP_ROTATE)
 	{
-		step_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->target, stack_b);
+		step_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
 	}
 	if (cheapest_node.operation == OP_REVERSE)
 	{
-		step_rev(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->target, stack_b);
+		step_rev(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
 	}
 	if (cheapest_node.operation == OP_ROT_REV)
 	{
-		step_rot_rev(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->target, stack_b);
+		step_rot_rev(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
 	}
 	if (cheapest_node.operation == OP_REV_ROT)
 	{
-		step_rev_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->target, stack_b);
+		step_rev_rot(&cheapest_node, stack_a, ((t_node *)(cheapest_node.cheapest->content))->tgt, stack_b);
 	}
 	pb(stack_a, stack_b);
 	return ;

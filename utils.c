@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 00:02:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/21 19:36:42 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:15:23 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ t_list	*find_max(t_list **stack)
 			max_node = current;
 		current = current->next;
 	}
-	((t_node *)max_node->content)->max = ((t_node *)max_node->content)->nbr;                                            //to do ver se preciso disso
+	((t_node *)max_node->content)->max = ((t_node *)max_node->content)->nbr;
 	return (max_node);
 }

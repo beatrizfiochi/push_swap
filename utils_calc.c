@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 17:59:19 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 16:58:13 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:15:01 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	put_index(t_list **stack)
 	current = *stack;
 	while (current != NULL)
 	{
-		((t_node *)(current->content))->index = i;
+		((t_node *)(current->content))->idx = i;
 		i++;
 		current = current->next;
 	}

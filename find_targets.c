@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:52:34 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/26 17:14:06 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:16:47 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	find_target_of_a_node(t_node *a, t_list **stack_b)
 
 	if (a->nbr < ((t_node *)min->content)->nbr)
 	{
-		a->target = max;
+		a->tgt = max;
 		return ;
 	}
 	else
-		a->target = find_closest_smaller(a, stack_b);
+		a->tgt = find_closest_smaller(a, stack_b);
 	return ;
 }
 
@@ -98,10 +98,10 @@ void	find_target_of_b_node(t_node *b, t_list **stack_a)
 
 	if (b->nbr > ((t_node *)max->content)->nbr)
 	{
-		b->target = min;
+		b->tgt = min;
 		return ;
 	}
 	else
-		b->target = find_closest_bigger(b, stack_a);
+		b->tgt = find_closest_bigger(b, stack_a);
 	return ;
 }
