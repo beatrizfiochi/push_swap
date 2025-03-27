@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 17:44:21 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:22:07 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:31:44 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	do_op_cost(t_list **stack, void (*func)(t_list **), int cost, int perf)
 	return ;
 }
 
-int	cost_utils (t_list **stack, int index)
+int	cost_utils(t_list **stack, int index)
 {
 	int	cost;
 

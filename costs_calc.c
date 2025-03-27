@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 10:26:46 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:16:13 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:31:15 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,16 @@ static int	cost_rev_rot(t_list *current_a, int size_list_a, int size_list_b)
 	return (total_cost);
 }
 
-int	cost(t_list *curr_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest)
+int	cost(t_list *curr_a, t_list **a, t_list **b, t_cost *cheapest)
 {
 	int		sz_l_a;
 	int		sz_l_b;
 	int		cost;
 
-	put_index(stack_a);
-	put_index(stack_b);
-	sz_l_a = ft_lstsize(*stack_a);
-	sz_l_b = ft_lstsize(*stack_b);
+	put_index(a);
+	put_index(b);
+	sz_l_a = ft_lstsize(*a);
+	sz_l_b = ft_lstsize(*b);
 	cheapest->cost = INT_MAX;
 	cost = cost_rot_all(curr_a, sz_l_a, sz_l_b);
 	if (cost < cheapest->cost)

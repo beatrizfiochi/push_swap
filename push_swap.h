@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:58 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:22:04 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:32:13 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,12 @@ typedef struct s_cost
 	t_list	*cheap;
 	int		cost;
 	int		operation;
-} t_cost;
-
+}	t_cost;
 
 int		handle_input(int argc, char **argv, t_data *data, t_list **stack_a);
-int		cost(t_list *current_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest);
+int		cost(t_list *curr_a, t_list **a, t_list **b, t_cost *cheapest);
 int		median(t_list **stack);
-int		cost_utils (t_list **stack, int index);
+int		cost_utils(t_list **stack, int index);
 
 t_list	*find_min(t_list **stack);
 t_list	*find_max(t_list **stack);
@@ -81,8 +80,6 @@ void	find_target_of_b_node(t_node *b, t_list **stack_a);
 void	execute_final_steps(t_list **stack_b, t_list **stack_a);
 void	fill_cost(t_cost *cost_op, t_list *current, int cost, int op);
 void	do_op_cost(t_list **stack, void (*func)(t_list **), int cost, int perf);
-void	do_op_r(t_list **a, t_list **b, void (*func)(t_list **, t_list **),
-			int min, int perf_op);
 
 bool	is_sorted(t_list **stack);
 
