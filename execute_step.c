@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:41:40 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:59:05 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,9 @@ static void	step_rt(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
 		performed_op++;
 	}
 	if (cheapest_node_cost > target_cost)
-	{
-		cheapest_node_cost = cheapest_node_cost - performed_op;
-		while (cheapest_node_cost > 0)
-		{
-			ra(a);
-			cheapest_node_cost--;
-		}
-	}
+		do_op_cost(a, ra, cheapest_node_cost, performed_op);
 	if (cheapest_node_cost < target_cost)
-	{
-		target_cost = target_cost - performed_op;
-		while (target_cost > 0)
-		{
-			rb(b);
-			target_cost--;
-		}
-	}
-	return ;
+		do_op_cost(b, rb, target_cost, performed_op);
 }
 
 static void	step_rv(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
