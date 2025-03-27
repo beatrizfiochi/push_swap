@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 10:26:46 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 16:58:03 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:03:38 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static int	cost_rev_rot(t_list *current_a, int size_list_a, int size_list_b)
 	return (total_cost);
 }
 
-int	cost(t_list *current_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest)
+int	cost(t_list *curr_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest)
 {
 	int		sz_l_a;
 	int		sz_l_b;
@@ -105,18 +105,18 @@ int	cost(t_list *current_a, t_list **stack_a, t_list **stack_b, t_cost *cheapest
 	sz_l_a = ft_lstsize(*stack_a);
 	sz_l_b = ft_lstsize(*stack_b);
 	cheapest->cost = INT_MAX;
-	cost = cost_rot_all(current_a, sz_l_a, sz_l_b);
+	cost = cost_rot_all(curr_a, sz_l_a, sz_l_b);
 	if (cost < cheapest->cost)
-		fill_cost(cheapest, current_a, cost, OP_ROTATE);
-	cost = cost_rev_all(current_a, sz_l_a, sz_l_b);
+		fill_cost(cheapest, curr_a, cost, OP_ROTATE);
+	cost = cost_rev_all(curr_a, sz_l_a, sz_l_b);
 	if (cost < cheapest->cost)
-		fill_cost(cheapest, current_a, cost, OP_REVERSE);
-	cost = cost_rot_rev(current_a, sz_l_a, sz_l_b);
+		fill_cost(cheapest, curr_a, cost, OP_REVERSE);
+	cost = cost_rot_rev(curr_a, sz_l_a, sz_l_b);
 	if (cost < cheapest->cost)
-		fill_cost(cheapest, current_a, cost, OP_ROT_REV);
-	cost = cost_rev_rot(current_a, sz_l_a, sz_l_b);
+		fill_cost(cheapest, curr_a, cost, OP_ROT_REV);
+	cost = cost_rev_rot(curr_a, sz_l_a, sz_l_b);
 	if (cost < cheapest->cost)
-		fill_cost(cheapest, current_a, cost, OP_REV_ROT);
+		fill_cost(cheapest, curr_a, cost, OP_REV_ROT);
 	// ft_printf("total cost of: %d, is %d (op: %d)\n\n\n", ((t_node *)(cheapest->cheapest->content))->nbr, cheapest->cost, cheapest->operation); /////APAGAR
 	return (cheapest->cost);
 }
