@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:05:36 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:24:41 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,8 @@ static void	step_rv(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
 
 	min = 0;
 	chp_nd = cheap_cost->cheap;
-	target_cost = 0;
-	cheap_node_cost = 0;
-	if (((t_node *)(chp_nd->content))->idx != 0)
-		cheap_node_cost = ft_lstsize(*a) - ((t_node *)(chp_nd->content))->idx;
-	if (((t_node *)(target->content))->idx != 0)
-		target_cost = ft_lstsize(*b) - ((t_node *)(target->content))->idx;
+	cheap_node_cost = cost_utils(a, ((t_node *)(chp_nd->content))->idx);
+	target_cost = cost_utils(b, ((t_node *)(target->content))->idx);
 	performed_op = 0;
 	if (cheap_node_cost <= target_cost)
 		min = cheap_node_cost;
