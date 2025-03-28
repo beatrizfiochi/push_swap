@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_steps.c                                      :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/27 17:44:21 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 20:46:46 by bfiochi-         ###   ########.fr       */
+/*   Created: 2025/03/28 21:06:36 by bfiochi-          #+#    #+#             */
+/*   Updated: 2025/03/28 21:13:31 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	do_op_c(t_list **stack, void (*func)(t_list **, bool), int cost, int p)
+int	error_op(char *error)
 {
-	cost = cost - p;
-	while (cost > 0)
-	{
-		func(stack, true);
-		cost--;
-	}
-	return ;
+	write(2, error, 6);
+	return (0);
 }
 
-int	cost_utils(t_list **stack, int index)
+void	clean(char *op, t_data data, t_list *a, t_list *b)
 {
-	int	cost;
-
-	cost = 0;
-	if (index != 0)
-		cost = ft_lstsize(*stack) - index;
-	return (cost);
+	free(op);
+	clear_data(&data);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
 }

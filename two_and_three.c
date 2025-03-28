@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:35:07 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/21 19:28:04 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:34:50 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	is_sorted(t_list **stack)
 
 void	sort_two(t_list **stack)
 {
-	sa(stack);
+	sa(stack, true);
 	return ;
 }
 
@@ -83,12 +83,12 @@ void	sort_three(t_list **stack)
 		sd = h->next;
 		t = ft_lstlast(*stack);
 		if (need_sa(stack, h, sd, t) == true)
-			sa(stack);
+			sa(stack, true);
 		else if (need_ra(stack, h, sd, t) == true)
-			ra(stack);
+			ra(stack, true);
 		else if (min == ((t_node *)(t->content))->nbr
 			&& max == ((t_node *)(sd->content))->nbr)
-			rra(stack);
+			rra(stack, true);
 	}
 	return ;
 }

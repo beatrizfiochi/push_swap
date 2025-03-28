@@ -6,7 +6,7 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/02 17:15:19 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/03/27 17:44:31 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/03/28 21:11:25 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,12 @@ SRCS = main.c handle_input.c utils.c inicializing_stacks.c swap.c push.c\
 		utils_steps.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -rf
+CHECKER = checker
+SRCS_BONUS = ./bonus/checker.c ./bonus/get_next_line/get_next_line.c\
+				./bonus/get_next_line/get_next_line_utils.c\
+				./bonus/checker_utils.c
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+OBJS_NO_MAIN = $(filter-out main.o, $(OBJS))
 
 all: $(NAME)
 
@@ -28,16 +34,22 @@ $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
 
+bonus: $(CHECKER)
+
+$(CHECKER): $(OBJS_NO_MAIN) $(OBJS_BONUS)
+	$(MAKE) -C $(LIBFT_DIR)
+	$(CC) $(CFLAGS) -o $(CHECKER) $(OBJS_NO_MAIN) $(OBJS_BONUS) $(LIBFT)
+
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(CHECKER)
 
 re: fclean all
 

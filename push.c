@@ -6,13 +6,13 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:34:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 15:03:23 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:37:26 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b, bool print)
 {
 	t_list	*head_a;
 	t_list	*head_b;
@@ -26,11 +26,12 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	head_b->next = head_a;
 	*stack_a = head_b;
 	*stack_b = second_b;
-	ft_printf("pa\n");
+	if (print == true)
+		ft_printf("pa\n");
 	return ;
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b, bool print)
 {
 	t_list	*head_a;
 	t_list	*second_a;
@@ -44,6 +45,7 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	head_a->next = head_b;
 	*stack_b = head_a;
 	*stack_a = second_a;
-	ft_printf("pb\n");
+	if (print == true)
+		ft_printf("pb\n");
 	return ;
 }

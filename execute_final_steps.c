@@ -6,15 +6,15 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:16:02 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:35:39 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:50:02 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	do_op_index(t_list **stack, void (*func)(t_list **))
+static void	do_op_index(t_list **stack, void (*func)(t_list **, bool))
 {
-	func(stack);
+	func(stack, true);
 	put_index(stack);
 	return ;
 }
@@ -45,5 +45,5 @@ void	execute_final_steps(t_list **stack_b, t_list **stack_a)
 				do_op_index(stack_a, ra);
 		}
 	}
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, true);
 }

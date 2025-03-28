@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:06:33 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 17:14:57 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:38:41 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	last_op(t_list **stack)
 		{
 			while (((t_node *)(min_node->content))->idx != 0)
 			{
-				rra(stack);
+				rra(stack, true);
 				put_index(stack);
 			}
 		}
@@ -34,7 +34,7 @@ static void	last_op(t_list **stack)
 		{
 			while (((t_node *)(min_node->content))->idx != 0)
 			{
-				ra(stack);
+				ra(stack, true);
 				put_index(stack);
 			}
 		}
@@ -47,7 +47,7 @@ void	sort(t_list **stack_a, t_list **stack_b)
 	int		lst_size_b;
 
 	while (ft_lstsize(*stack_a) > 3 && ft_lstsize(*stack_b) < 2)
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, true);
 	lst_size_a = ft_lstsize(*stack_a);
 	while (lst_size_a > 3)
 	{

@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:48:35 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/18 15:04:45 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:41:46 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,27 @@ static void	rotate(t_list **stack)
 	return ;
 }
 
-void	ra(t_list **stack_a)
+void	ra(t_list **stack_a, bool print)
 {
 	rotate(stack_a);
-	ft_printf("ra\n");
+	if (print == true)
+		ft_printf("ra\n");
 	return ;
 }
 
-void	rb(t_list **stack_b)
+void	rb(t_list **stack_b, bool print)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
+	if (print == true)
+		ft_printf("rb\n");
 	return ;
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b, bool print)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_printf("rr\n");
+	if (print == true)
+		ft_printf("rr\n");
 	return ;
 }

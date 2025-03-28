@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 11:33:59 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:36:00 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:49:16 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ static void	step_rt(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
 		min = target_cost;
 	while (min > 0)
 	{
-		rr(a, b);
+		rr(a, b, true);
 		min--;
 		performed_op++;
 	}
 	if (cheapest_node_cost > target_cost)
-		do_op_cost(a, ra, cheapest_node_cost, performed_op);
+		do_op_c(a, ra, cheapest_node_cost, performed_op);
 	if (cheapest_node_cost < target_cost)
-		do_op_cost(b, rb, target_cost, performed_op);
+		do_op_c(b, rb, target_cost, performed_op);
 }
 
 static void	step_rv(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
@@ -60,14 +60,14 @@ static void	step_rv(t_cost *cheap_cost, t_list **a, t_list *target, t_list **b)
 		min = target_cost;
 	while (min > 0)
 	{
-		rrr(a, b);
+		rrr(a, b, true);
 		min--;
 		performed_op++;
 	}
 	if (cheap_node_cost > target_cost)
-		do_op_cost(a, rra, cheap_node_cost, performed_op);
+		do_op_c(a, rra, cheap_node_cost, performed_op);
 	if (cheap_node_cost < target_cost)
-		do_op_cost(b, rrb, target_cost, performed_op);
+		do_op_c(b, rrb, target_cost, performed_op);
 }
 
 static void	step_rt_rv(t_cost *cheap_cost, t_list **a, t_list *tgt, t_list **b)
@@ -85,12 +85,12 @@ static void	step_rt_rv(t_cost *cheap_cost, t_list **a, t_list *tgt, t_list **b)
 		target_cost = size_list_b - ((t_node *)(tgt->content))->idx;
 	while (cheapest_node_cost > 0)
 	{
-		ra(a);
+		ra(a, true);
 		cheapest_node_cost--;
 	}
 	while (target_cost > 0)
 	{
-		rrb(b);
+		rrb(b, true);
 		target_cost--;
 	}
 	return ;
@@ -111,12 +111,12 @@ static void	step_rv_rt(t_cost *cheap_cost, t_list **a, t_list *tgt, t_list **b)
 	target_cost = ((t_node *)(tgt->content))->idx;
 	while (cheap_node_cost > 0)
 	{
-		rra(a);
+		rra(a, true);
 		cheap_node_cost--;
 	}
 	while (target_cost > 0)
 	{
-		rb(b);
+		rb(b, true);
 		target_cost--;
 	}
 	return ;
@@ -146,6 +146,6 @@ void	execute_step(t_list **a, t_list **b)
 		step_rt_rv(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
 	if (chp_node.operation == OP_REV_ROT)
 		step_rv_rt(&chp_node, a, ((t_node *)(chp_node.cheap->content))->tgt, b);
-	pb(a, b);
+	pb(a, b, true);
 	return ;
 }
