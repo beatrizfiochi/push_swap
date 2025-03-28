@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 19:07:39 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 13:49:46 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 21:53:32 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	polish_list(t_list_gnl **list)
 {
 	t_list_gnl	*last;
 	t_list_gnl	*clean_node;
-	int		i;
-	int		k;
+	int			i;
+	int			k;
 
 	clean_node = malloc(sizeof(t_list_gnl));
 	if (clean_node == NULL)
@@ -104,7 +104,7 @@ void	add_newnode(t_list_gnl **list, char *buffer)
 char	*get_next_line(int fd)
 {
 	static t_list_gnl	*list = NULL;
-	char			*next_line;
+	char				*next_line;
 
 	if ((fd < 0) || (BUFFER_SIZE <= 0) || (read(fd, &next_line, 0) < 0))
 		return (NULL);

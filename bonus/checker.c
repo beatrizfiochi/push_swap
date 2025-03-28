@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 10:42:52 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 21:45:25 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 21:52:47 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 	t_data	data;
-	char 	*operation;
+	char	*operation;
 
 	a = NULL;
 	b = NULL;

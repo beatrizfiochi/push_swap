@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 11:57:05 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 11:43:27 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 21:54:54 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 // Structure of my linked list
 typedef struct s_list_gnl
 {
-	char			*str_buffer;
+	char				*str_buffer;
 	struct s_list_gnl	*next;
 }	t_list_gnl;
 
