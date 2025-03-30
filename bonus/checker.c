@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 10:42:52 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 21:52:47 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/30 16:08:58 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 static int	check_op(char *operation, t_list **a, t_list **b)
 {
-	if (ft_strncmp(operation, "sa", 2) == 0)
+	if (ft_strncmp(operation, "sa\0", 3) == 0)
 		sa(a, false);
-	else if (ft_strncmp(operation, "sb", 2) == 0)
+	else if (ft_strncmp(operation, "sb\0", 3) == 0)
 		sb(b, false);
-	else if (ft_strncmp(operation, "ss", 2) == 0)
+	else if (ft_strncmp(operation, "ss\0", 3) == 0)
 		ss(a, b, false);
-	else if (ft_strncmp(operation, "pb", 2) == 0)
+	else if (ft_strncmp(operation, "pb\0", 3) == 0)
 		pb(a, b, false);
-	else if (ft_strncmp(operation, "pa", 2) == 0)
+	else if (ft_strncmp(operation, "pa\0", 3) == 0)
 		pa(a, b, false);
-	else if (ft_strncmp(operation, "ra", 2) == 0)
+	else if (ft_strncmp(operation, "ra\0", 3) == 0)
 		ra(a, false);
-	else if (ft_strncmp(operation, "rb", 2) == 0)
+	else if (ft_strncmp(operation, "rb\0", 3) == 0)
 		rb(b, false);
-	else if (ft_strncmp(operation, "rra", 3) == 0)
+	else if (ft_strncmp(operation, "rra\0", 4) == 0)
 		rra(a, false);
-	else if (ft_strncmp(operation, "rrb", 3) == 0)
+	else if (ft_strncmp(operation, "rrb\0", 4) == 0)
 		rrb(b, false);
-	else if (ft_strncmp(operation, "rrr", 3) == 0)
+	else if (ft_strncmp(operation, "rrr\0", 4) == 0)
 		rrr(a, b, false);
-	else if (ft_strncmp(operation, "rr", 2) == 0)
+	else if (ft_strncmp(operation, "rr\0", 3) == 0)
 		rr(a, b, false);
 	else
 		return (error_op("Error\n"));
