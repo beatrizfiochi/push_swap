@@ -6,7 +6,7 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 10:47:59 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/03/17 16:19:02 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/03/30 15:45:37 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,4 +53,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
+.SILENT:
