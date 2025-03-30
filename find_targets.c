@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:52:34 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/30 18:55:48 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/30 19:49:10 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static t_list	*find_closest_smaller(t_node *a, t_list **stack_b)
 	t_list	*b;
 	t_node	*b_node;
 	t_list	*closest;
-	long		small_diff;
-	long		tmp_diff;
+	long	small_diff;
+	long	tmp_diff;
 
 	b = *stack_b;
 	closest = NULL;
@@ -62,8 +62,8 @@ static t_list	*find_closest_bigger(t_node *b, t_list **stack_a)
 	t_list	*a;
 	t_node	*a_node;
 	t_list	*closest;
-	long		small_diff;
-	long		tmp_diff;
+	long	small_diff;
+	long	tmp_diff;
 
 	a = *stack_a;
 	closest = NULL;
