@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:52:34 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/27 18:28:26 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:55:48 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static t_list	*find_closest_smaller(t_node *a, t_list **stack_b)
 	t_list	*b;
 	t_node	*b_node;
 	t_list	*closest;
-	int		small_diff;
-	int		tmp_diff;
+	long		small_diff;
+	long		tmp_diff;
 
 	b = *stack_b;
 	closest = NULL;
-	small_diff = INT_MAX;
+	small_diff = LONG_MAX;
 	while (b != NULL)
 	{
 		b_node = (t_node *)(b->content);
 		if (b_node->nbr < a->nbr)
 		{
-			tmp_diff = a->nbr - b_node->nbr;
+			tmp_diff = (long)(a->nbr) - b_node->nbr;
 			if (tmp_diff < small_diff)
 			{
 				small_diff = tmp_diff;
@@ -62,18 +62,18 @@ static t_list	*find_closest_bigger(t_node *b, t_list **stack_a)
 	t_list	*a;
 	t_node	*a_node;
 	t_list	*closest;
-	int		small_diff;
-	int		tmp_diff;
+	long		small_diff;
+	long		tmp_diff;
 
 	a = *stack_a;
 	closest = NULL;
-	small_diff = INT_MAX;
+	small_diff = LONG_MAX;
 	while (a != NULL)
 	{
 		a_node = (t_node *)(a->content);
 		if (a_node->nbr > b->nbr)
 		{
-			tmp_diff = a_node->nbr - b->nbr;
+			tmp_diff = (long)(a_node->nbr) - b->nbr;
 			if (tmp_diff < small_diff)
 			{
 				small_diff = tmp_diff;
