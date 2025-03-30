@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:16:02 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 20:50:02 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/30 17:00:25 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	execute_final_steps(t_list **stack_b, t_list **stack_a)
 	{
 		median_lst = median(stack_a);
 		if (((t_node *)(((t_node *)(b->content))->tgt->content))->idx
-			>= median_lst)
+			> median_lst)
 		{
 			while (((t_node *)(((t_node *)(b->content))->tgt->content))->idx
 				!= 0)
