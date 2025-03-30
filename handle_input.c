@@ -6,7 +6,7 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 14:13:28 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/03/28 23:13:00 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	handle_input(int argc, char **argv, t_data *data, t_list **stack_a)
 
 	*stack_a = NULL;
 	data->args_need_free = false;
-	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
-		return (1);
+	if ((argc == 2 && argv[1][0] == '\0'))
+		print_error(data);
 	if (argc > 2)
 		data->args = &argv[1];
 	else
