@@ -6,7 +6,7 @@
 #    By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/02 17:15:19 by bfiochi-          #+#    #+#              #
-#    Updated: 2025/03/30 15:48:28 by bfiochi-         ###   ########.fr        #
+#    Updated: 2025/04/03 13:40:55 by bfiochi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,8 @@ SRCS = main.c handle_input.c utils.c inicializing_stacks.c swap.c push.c\
 OBJS = $(SRCS:.c=.o)
 RM = rm -rf
 CHECKER = checker
-SRCS_BONUS = ./bonus/checker.c ./bonus/get_next_line/get_next_line.c\
-				./bonus/get_next_line/get_next_line_utils.c\
-				./bonus/checker_utils.c
+SRCS_BONUS = ./bonus/checker_bonus.c ./bonus/get_next_line/get_next_line.c\
+				./bonus/get_next_line/get_next_line_utils.c
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 OBJS_NO_MAIN = $(filter-out main.o, $(OBJS))
 

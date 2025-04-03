@@ -6,22 +6,19 @@
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:27:47 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/28 23:13:00 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:21:42 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_integer(const char *str)
+static int	is_integer(t_data *data)
 {
 	long	num;
 
-	num = ft_atol(str);
+	num = ft_atol(*data->args);
 	if (num > INT_MAX || num < INT_MIN)
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		print_error(data);
 	return (0);
 }
 
@@ -44,7 +41,7 @@ static int	syntax_error(t_data *data)
 				print_error(data);
 			i++;
 		}
-		is_integer(*s);
+		is_integer(data);
 		s++;
 	}
 	return (0);

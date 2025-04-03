@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfiochi- <bfiochi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 10:42:52 by bfiochi-          #+#    #+#             */
-/*   Updated: 2025/03/30 19:21:00 by bfiochi-         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:30:53 by bfiochi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../libft/libft.h"
+#include "../push_swap.h"
+#include "get_next_line/get_next_line.h"
+
+static int	error_op(char *error)
+{
+	write(2, error, 6);
+	return (0);
+}
+
+static void	clean(char *op, t_data data, t_list *a, t_list *b)
+{
+	free(op);
+	clear_data(&data);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
+}
 
 static int	check_op(char *operation, t_list **a, t_list **b)
 {
